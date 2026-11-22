@@ -1,0 +1,1087 @@
+<!DOCTYPE html>
+<html lang="en" class="scroll-smooth">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Wedding Invitation | Abhijeet &amp; Ankita (22nd February 2027)</title>
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@500;600;700;800&family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400;1,600&family=Plus+Jakarta+Sans:wght@300;400;500;600;700&display=swap" rel="stylesheet" />
+
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          fontFamily: {
+            cinzel: ['"Cinzel"', 'serif'],
+            serif: ['"Cormorant Garamond"', 'serif'],
+            sans: ['"Plus Jakarta Sans"', 'sans-serif'],
+          }
+        }
+      }
+    };
+  </script>
+
+  <style>
+    :root {
+      --bg-base: #FFF2F4;
+      --bg-gradient: radial-gradient(circle at 14% 12%, rgba(255, 182, 193, 0.78) 0%, transparent 45%),
+                     radial-gradient(circle at 86% 18%, rgba(251, 113, 136, 0.48) 0%, transparent 48%),
+                     radial-gradient(circle at 50% 62%, rgba(254, 205, 213, 0.68) 0%, transparent 60%),
+                     linear-gradient(165deg, #FFF5F6 0%, #FFE2E7 42%, #FFD1D9 78%, #FFE8EC 100%);
+      --card-bg: rgba(255, 255, 255, 0.88);
+      --card-border: rgba(225, 29, 72, 0.24);
+      --card-shadow: 0 22px 50px -12px rgba(190, 18, 60, 0.16), 0 4px 16px -2px rgba(244, 63, 94, 0.10);
+      --accent-main: #E11D48;
+      --accent-deep: #9F1239;
+      --accent-soft: #FFE4E8;
+      --gold-highlight: #B88628;
+      --text-primary: #4A0818;
+      --text-muted: #9B3B51;
+      --btn-grad: linear-gradient(135deg, #E11D48 0%, #F43F5E 52%, #BE123C 100%);
+    }
+
+    body {
+      background-color: var(--bg-base);
+      background-image: var(--bg-gradient);
+      background-attachment: fixed;
+      color: var(--text-primary);
+    }
+
+    .botanical-lattice {
+      background-image: url("data:image/svg+xml,%3Csvg width='120' height='120' viewBox='0 0 120 120' xmlns='http://www.w3.org/2000/svg'%3E%3Cg fill='none' stroke='%23e11d48' stroke-opacity='0.085' stroke-width='1'%3E%3Ccircle cx='60' cy='60' r='46'/%3E%3Ccircle cx='60' cy='60' r='32' stroke-dasharray='4 4'/%3E%3Cpath d='M60 14 C70 34, 86 50, 106 60 C86 70, 70 86, 60 106 C50 86, 34 70, 14 60 C34 50, 50 34, 60 14 Z'/%3E%3Cpath d='M27 27 C45 38, 52 45, 60 60 C45 52, 38 45, 27 27 Z'/%3E%3Cpath d='M93 27 C75 38, 68 45, 60 60 C75 52, 82 45, 93 27 Z'/%3E%3Cpath d='M27 93 C45 82, 52 75, 60 60 C45 68, 38 75, 27 93 Z'/%3E%3Cpath d='M93 93 C75 82, 68 75, 60 60 C75 68, 82 75, 93 93 Z'/%3E%3C/g%3E%3C/svg%3E");
+      background-size: 120px 120px;
+    }
+
+    .royal-card {
+      background: var(--card-bg);
+      border: 1.5px solid var(--card-border);
+      box-shadow: var(--card-shadow);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+    }
+
+    .royal-btn {
+      background: var(--btn-grad);
+      color: #FFFFFF;
+      box-shadow: 0 10px 25px -5px rgba(225, 29, 72, 0.38);
+    }
+    .royal-btn:hover {
+      filter: brightness(1.06);
+      transform: translateY(-1px);
+    }
+
+    .accent-text { color: var(--accent-main); }
+    .deep-text { color: var(--accent-deep); }
+    .muted-text { color: var(--text-muted); }
+    .gold-text { color: var(--gold-highlight); }
+
+    .soft-pill {
+      background: var(--accent-soft);
+      border: 1px solid var(--card-border);
+      color: var(--accent-deep);
+    }
+
+    /* 3D FOLDED ROYAL ENVELOPE GATE */
+    .envelope-backdrop {
+      background: radial-gradient(circle at 50% 35%, #FFF1F3 0%, #FFD5DD 48%, #F8A1B3 92%, #E16B84 100%);
+      transition: opacity 0.85s ease, visibility 0.85s ease;
+    }
+    .envelope-backdrop.envelope-dismissed {
+      opacity: 0;
+      visibility: hidden;
+      pointer-events: none;
+    }
+
+    .envelope-perspective {
+      perspective: 1400px;
+    }
+
+    .envelope-body {
+      position: relative;
+      width: 100%;
+      max-width: 460px;
+      height: 310px;
+      background: linear-gradient(145deg, #F43F5E 0%, #E11D48 52%, #BE123C 100%);
+      border-radius: 18px;
+      box-shadow: 0 32px 70px -15px rgba(136, 19, 55, 0.52), 0 0 0 2px rgba(253, 230, 138, 0.55);
+      transform-style: preserve-3d;
+      transition: transform 0.8s cubic-bezier(0.22, 1, 0.36, 1);
+    }
+
+    @media (min-width: 640px) {
+      .envelope-body { height: 335px; }
+    }
+
+    .envelope-letter {
+      position: absolute;
+      left: 6%;
+      right: 6%;
+      bottom: 14px;
+      height: 86%;
+      background: linear-gradient(180deg, #FFFFFF 0%, #FFF7F8 100%);
+      border-radius: 14px;
+      border: 1.5px solid #F59E0B;
+      box-shadow: 0 8px 25px rgba(136, 19, 55, 0.22);
+      z-index: 2;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      padding: 1.25rem;
+      text-align: center;
+      transition: transform 1.05s cubic-bezier(0.34, 1.56, 0.64, 1) 0.45s, opacity 0.5s ease;
+    }
+
+    .envelope-body.is-opening .envelope-letter {
+      transform: translateY(-135px) scale(1.03);
+      z-index: 5;
+    }
+
+    .flap-left {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, #FB7188 0%, #E11D48 100%);
+      clip-path: polygon(0 0, 52% 52%, 0 100%);
+      border-radius: 18px 0 0 18px;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .flap-right {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(225deg, #FB7188 0%, #E11D48 100%);
+      clip-path: polygon(100% 0, 48% 52%, 100% 100%);
+      border-radius: 0 18px 18px 0;
+      z-index: 3;
+      pointer-events: none;
+    }
+
+    .flap-bottom {
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(0deg, #BE123C 0%, #F43F5E 92%);
+      clip-path: polygon(0 100%, 50% 46%, 100% 100%);
+      border-radius: 0 0 18px 18px;
+      z-index: 4;
+      box-shadow: 0 -6px 18px rgba(136, 19, 55, 0.25);
+      pointer-events: none;
+    }
+
+    .flap-top {
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 58%;
+      background: linear-gradient(180deg, #FDA4B3 0%, #F43F5E 48%, #E11D48 100%);
+      clip-path: polygon(0 0, 100% 0, 50% 100%);
+      border-radius: 18px 18px 0 0;
+      transform-origin: top center;
+      transform: rotateX(0deg);
+      transition: transform 0.85s cubic-bezier(0.4, 0, 0.2, 1), z-index 0.1s linear 0.4s;
+      z-index: 6;
+      filter: drop-shadow(0 8px 14px rgba(136, 19, 55, 0.35));
+      pointer-events: none;
+    }
+
+    .envelope-body.is-opening .flap-top {
+      transform: rotateX(180deg);
+      z-index: 1;
+    }
+
+    .wax-seal-btn {
+      position: absolute;
+      top: 52%;
+      left: 50%;
+      transform: translate(-50%, -50%);
+      z-index: 7;
+      transition: transform 0.55s cubic-bezier(0.34, 1.56, 0.64, 1), opacity 0.45s ease;
+    }
+
+    .envelope-body.is-opening .wax-seal-btn {
+      transform: translate(-50%, -50%) scale(1.45) rotate(18deg);
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    @keyframes pulseRing {
+      0% { transform: scale(0.95); opacity: 0.8; }
+      75% { transform: scale(1.22); opacity: 0; }
+      100% { transform: scale(1.22); opacity: 0; }
+    }
+    .seal-pulse::before {
+      content: '';
+      position: absolute;
+      inset: -6px;
+      border-radius: 9999px;
+      border: 2px solid #FDE68A;
+      animation: pulseRing 2.4s cubic-bezier(0.24, 0, 0.38, 1) infinite;
+    }
+
+    @keyframes eqPulse {
+      0%, 100% { height: 4px; }
+      50% { height: 15px; }
+    }
+    .eq-1 { animation: eqPulse 0.85s ease-in-out infinite; }
+    .eq-2 { animation: eqPulse 1.15s ease-in-out infinite 0.2s; }
+    .eq-3 { animation: eqPulse 0.75s ease-in-out infinite 0.35s; }
+
+    .scratch-wrapper {
+      position: relative;
+      user-select: none;
+      -webkit-user-select: none;
+      touch-action: none;
+    }
+    #scratch-canvas {
+      cursor: crosshair;
+      touch-action: none;
+      transition: opacity 0.65s ease;
+    }
+    #scratch-canvas.scratched-complete {
+      opacity: 0;
+      pointer-events: none;
+    }
+
+    ::-webkit-scrollbar { width: 7px; }
+    ::-webkit-scrollbar-track { background: #FFF0F3; }
+    ::-webkit-scrollbar-thumb { background: #F43F5E; border-radius: 4px; }
+  </style>
+</head>
+
+<body class="botanical-lattice font-sans antialiased selection:bg-rose-300/40 overflow-x-hidden">
+
+  <!-- Ambient Floating Rose Petals Canvas -->
+  <canvas id="petal-canvas" class="fixed inset-0 pointer-events-none z-20"></canvas>
+
+  <!-- Toast Notification Pill -->
+  <div id="toast-banner" class="fixed bottom-5 left-1/2 -translate-x-1/2 z-50 px-5 py-3 rounded-full bg-rose-950 text-white font-cinzel text-xs tracking-wider uppercase shadow-2xl border border-rose-400/40 opacity-0 pointer-events-none transition-all duration-300">
+    Notification
+  </div>
+
+  <!-- TOP UTILITY BAR -->
+  <div id="top-utility-bar" class="fixed top-3 left-3 right-3 z-40 flex items-center justify-between gap-2 pointer-events-none">
+    <div class="pointer-events-auto inline-flex items-center gap-2 px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-rose-300/80 shadow-md">
+      <span class="w-2 h-2 rounded-full bg-rose-500 animate-pulse"></span>
+      <span class="font-cinzel text-[11px] font-bold tracking-widest uppercase deep-text">Abhijeet &amp; Ankita</span>
+    </div>
+
+    <div class="pointer-events-auto flex items-center gap-2">
+      <button id="btn-audio-toggle" onclick="toggleAudio()"
+              class="px-3.5 py-1.5 rounded-full bg-white/95 backdrop-blur-md border border-rose-300/80 text-rose-900 hover:bg-rose-50 shadow-lg flex items-center gap-2 text-[11px] font-cinzel font-bold tracking-wider uppercase transition">
+        <span id="eq-bars" class="flex items-end gap-0.5 h-3.5 w-3.5 opacity-40">
+          <span class="w-0.5 rounded-full bg-rose-600 eq-1"></span>
+          <span class="w-0.5 rounded-full bg-amber-500 eq-2"></span>
+          <span class="w-0.5 rounded-full bg-rose-600 eq-3"></span>
+        </span>
+        <span id="audio-status-label">Music</span>
+      </button>
+    </div>
+  </div>
+
+  <!-- ======================================================================= -->
+  <!-- 1. 3D ROYAL ENVELOPE CURTAIN GATE                                       -->
+  <!-- ======================================================================= -->
+  <div id="envelope-gate" class="envelope-backdrop botanical-lattice fixed inset-0 z-50 flex flex-col items-center justify-center p-4 sm:p-6">
+    <div class="text-center mb-6">
+      <p class="font-serif text-lg sm:text-xl font-bold tracking-[0.22em] deep-text">॥ श्री गणेशाय नमः ॥</p>
+      <p class="font-cinzel text-[11px] tracking-[0.35em] uppercase gold-text font-bold mt-0.5">॥ शुभ विवाह ॥</p>
+    </div>
+
+    <!-- 3D Envelope -->
+    <div class="envelope-perspective w-full flex justify-center px-2">
+      <div id="royal-envelope" onclick="triggerEnvelopeOpen()" class="envelope-body cursor-pointer select-none">
+        <!-- Inner Rising Card -->
+        <div class="envelope-letter">
+          <span class="font-cinzel text-[10px] tracking-[0.28em] uppercase gold-text font-bold">Wedding Invitation</span>
+          <h2 class="font-cinzel text-2xl sm:text-3xl font-extrabold deep-text mt-1">
+            Abhijeet <span class="font-serif italic font-semibold accent-text">&amp;</span> Ankita
+          </h2>
+          <p class="font-serif italic text-base sm:text-lg muted-text mt-1">
+            22nd February 2027 • Ghatshila
+          </p>
+          <span class="mt-2 inline-block px-3 py-1 rounded-full bg-rose-100 text-rose-800 font-cinzel text-[10px] font-bold tracking-widest uppercase">
+            Opening Card...
+          </span>
+        </div>
+
+        <!-- Pocket Flaps -->
+        <div class="flap-left"></div>
+        <div class="flap-right"></div>
+        <div class="flap-bottom"></div>
+        <div class="flap-top"></div>
+
+        <!-- Center Gold Wax Seal -->
+        <button type="button" aria-label="Open Wedding Envelope"
+                class="wax-seal-btn seal-pulse w-24 h-24 rounded-full flex items-center justify-center shadow-2xl"
+                style="background: radial-gradient(circle at 30% 30%, #FEF08A, #F59E0B 55%, #B45309 100%); border: 3px solid #FFFBEB;">
+          <div class="absolute inset-1.5 rounded-full border border-amber-900/30"></div>
+          <div class="text-center text-rose-950">
+            <span class="block font-cinzel text-2xl font-extrabold tracking-wider">A &amp; A</span>
+            <span class="block font-cinzel text-[8px] font-bold tracking-[0.2em] uppercase">TAP SEAL</span>
+          </div>
+        </button>
+
+        <!-- Pocket Front Host Caption -->
+        <div class="absolute bottom-3.5 inset-x-0 z-10 text-center pointer-events-none px-4">
+          <p class="font-cinzel text-[10px] tracking-[0.24em] uppercase text-amber-100/95 font-bold">
+            Hosted By Nayak Family • Ghatshila
+          </p>
+        </div>
+      </div>
+    </div>
+
+    <button type="button" onclick="triggerEnvelopeOpen()"
+            class="mt-8 royal-btn px-8 py-3.5 rounded-full font-cinzel font-bold text-xs tracking-[0.22em] uppercase transition">
+      Tap Wax Seal To Open Envelope
+    </button>
+  </div>
+
+  <!-- ======================================================================= -->
+  <!-- 2. HERO SECTION & INTERACTIVE GOLD-FOIL SCRATCH CARD                    -->
+  <!-- ======================================================================= -->
+  <header class="relative pt-24 pb-20 px-4 text-center overflow-hidden border-b border-rose-300/60">
+    <div class="relative max-w-4xl mx-auto flex flex-col items-center">
+      <!-- Lord Ganesha Emblem -->
+      <div class="mb-4 flex flex-col items-center">
+        <div class="w-20 h-20 rounded-full bg-white/90 border-2 border-rose-300/80 shadow-lg flex items-center justify-center p-3 mb-2.5">
+          <svg class="w-full h-full text-rose-600" viewBox="0 0 64 64" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M24 14 L32 6 L40 14" />
+            <path d="M20 19 C26 15, 38 15, 44 19" />
+            <line x1="32" y1="18" x2="32" y2="24" stroke="#C59634" stroke-width="2.5" />
+            <path d="M20 22 C11 20, 9 32, 17 36" />
+            <path d="M44 22 C53 20, 55 32, 47 36" />
+            <path d="M21 21 C21 31, 26 35, 31 37 C35 39, 36 45, 31 48 C27 50, 24 47, 26 44" />
+            <path d="M43 21 C43 29, 39 33, 35 35" />
+            <circle cx="26" cy="26" r="1.3" fill="currentColor" />
+            <circle cx="38" cy="26" r="1.3" fill="currentColor" />
+            <path d="M16 54 C24 51, 40 51, 48 54" stroke="#C59634" />
+            <path d="M21 58 C28 56, 36 56, 43 58" stroke="#C59634" />
+          </svg>
+        </div>
+        <p class="font-serif text-xl sm:text-2xl font-bold tracking-[0.22em] deep-text">
+          ॥ श्री गणेशाय नमः ॥
+        </p>
+      </div>
+
+      <span class="soft-pill px-5 py-1.5 rounded-full font-cinzel text-xs sm:text-sm tracking-[0.3em] uppercase font-bold mb-5 shadow-sm">
+        The Sacred Wedding Ceremony
+      </span>
+
+      <!-- Couple First Names Only + Parents -->
+      <div class="w-full max-w-3xl my-2 space-y-4">
+        <div>
+          <h1 class="font-cinzel text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight deep-text drop-shadow-sm">
+            Abhijeet
+          </h1>
+          <p class="font-serif italic text-lg sm:text-2xl muted-text mt-1">
+            Son of <span class="font-bold not-italic deep-text">Smt. Rupa Roy</span> &amp; <span class="font-bold not-italic deep-text">Shri Apurva Roy</span>
+          </p>
+        </div>
+
+        <div class="flex items-center justify-center gap-4 py-1">
+          <span class="w-16 sm:w-28 h-0.5 bg-gradient-to-r from-transparent via-rose-500 to-amber-500"></span>
+          <span class="font-serif italic text-3xl sm:text-5xl font-bold accent-text">weds</span>
+          <span class="w-16 sm:w-28 h-0.5 bg-gradient-to-l from-transparent via-rose-500 to-amber-500"></span>
+        </div>
+
+        <div>
+          <h1 class="font-cinzel text-5xl sm:text-6xl md:text-7xl font-extrabold tracking-tight deep-text drop-shadow-sm">
+            Ankita
+          </h1>
+          <p class="font-serif italic text-lg sm:text-2xl muted-text mt-1">
+            Daughter of <span class="font-bold not-italic deep-text">Smt. Chabbi Nayak</span> &amp; <span class="font-bold not-italic deep-text">Shri Bhaskar Nayak</span>
+          </p>
+        </div>
+      </div>
+
+      <!-- INTERACTIVE GOLD-FOIL SCRATCH CARD FOR DATE REVEAL -->
+      <div class="w-full max-w-md royal-card rounded-[2rem] p-6 sm:p-7 mt-9">
+        <span class="font-cinzel text-[11px] font-bold tracking-[0.28em] uppercase accent-text block">
+          Save The Wedding Date
+        </span>
+        <p id="scratch-hint-text" class="font-serif italic text-base muted-text mt-1 mb-4">
+          Rub the gold foil below with your finger or cursor to reveal!
+        </p>
+
+        <div id="scratch-box" class="scratch-wrapper w-full h-36 rounded-2xl overflow-hidden border-2 border-amber-400/80 shadow-inner bg-gradient-to-br from-rose-50 via-white to-amber-50 flex flex-col items-center justify-center p-4">
+          <span class="font-cinzel text-[10px] tracking-[0.25em] uppercase gold-text font-bold">Shubh Vivah Muhurat</span>
+          <p class="font-cinzel text-xl sm:text-2xl font-extrabold deep-text mt-1">22nd February 2027</p>
+          <p class="font-serif italic text-lg accent-text font-semibold">7:00 PM Onwards • Ghatshila</p>
+
+          <canvas id="scratch-canvas" class="absolute inset-0 w-full h-full"></canvas>
+        </div>
+
+        <button id="btn-instant-reveal" type="button" onclick="completeScratchReveal()"
+                class="mt-4 px-4 py-1.5 rounded-full bg-rose-50 hover:bg-rose-100 border border-rose-200 font-cinzel text-[10px] font-bold uppercase tracking-widest deep-text transition">
+          Quick Reveal Date
+        </button>
+      </div>
+    </div>
+  </header>
+
+  <!-- ======================================================================= -->
+  <!-- 3. WHEN & WHERE + HOST FAMILY (BRIDE'S FAMILY ONLY)                     -->
+  <!-- ======================================================================= -->
+  <section id="event-details" class="py-16 md:py-24 px-4 sm:px-6 max-w-5xl mx-auto">
+    <div class="text-center mb-12">
+      <span class="font-cinzel text-xs font-bold tracking-[0.3em] uppercase accent-text">When &amp; Where</span>
+      <h2 class="font-cinzel text-3xl sm:text-5xl font-extrabold deep-text mt-1">
+        The Wedding Ceremony
+      </h2>
+      <div class="w-20 h-1 rounded-full mx-auto mt-4 bg-gradient-to-r from-rose-400 via-amber-400 to-rose-400"></div>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-stretch">
+      <!-- Ceremony Card -->
+      <div class="lg:col-span-7 royal-card rounded-[2rem] p-8 sm:p-10 flex flex-col justify-between">
+        <div>
+          <div class="flex flex-wrap items-center justify-between gap-2 mb-6">
+            <span class="soft-pill px-4 py-1.5 rounded-full text-xs font-cinzel font-bold tracking-widest uppercase">
+              Shubh Vivah
+            </span>
+            <span class="font-cinzel text-xs tracking-widest uppercase gold-text font-bold">
+              Ghatshila, Jharkhand
+            </span>
+          </div>
+
+          <h3 class="font-cinzel text-2xl sm:text-3xl font-extrabold deep-text mb-2">
+            Subho Bibaho, Varmala &amp; Sacred Pheras
+          </h3>
+          <p class="font-serif italic text-xl sm:text-2xl accent-text font-semibold mb-6">
+            Monday, 22nd February 2027 • 7:00 PM Onwards
+          </p>
+
+          <div class="space-y-5 text-sm sm:text-base border-t border-b border-rose-200/80 py-6">
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-full bg-rose-100 border border-rose-300 flex items-center justify-center shrink-0 mt-0.5">
+                <svg class="w-5 h-5 text-rose-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                </svg>
+              </div>
+              <div>
+                <strong class="font-cinzel text-xs tracking-widest uppercase deep-text block">Evening Schedule</strong>
+                <span class="muted-text font-medium">7:00 PM Onwards — Wedding Ceremony, Sacred Pheras &amp; Dinner Celebrations</span>
+              </div>
+            </div>
+
+            <div class="flex items-start gap-4">
+              <div class="w-10 h-10 rounded-full bg-rose-100 border border-rose-300 flex items-center justify-center shrink-0 mt-0.5">
+                <svg class="w-5 h-5 text-rose-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z"/>
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"/>
+                </svg>
+              </div>
+              <div>
+                <strong class="font-cinzel text-xs tracking-widest uppercase deep-text block">Exact Wedding Venue</strong>
+                <span class="muted-text font-medium">Circus Maidan HCL MINES, Dahigora, Ghatshila, Jharkhand 832303</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="pt-6 flex flex-wrap items-center justify-between gap-4">
+          <a href="https://maps.app.goo.gl/yat5jiFEsvsQAERj9" target="_blank" rel="noopener noreferrer"
+             class="royal-btn px-6 py-3.5 rounded-full font-cinzel font-bold text-xs tracking-widest uppercase transition inline-flex items-center gap-2">
+            <svg class="w-4 h-4" fill="none" stroke="currentColor" stroke-width="2.2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M9 20l-5.447-2.724A1 1 0 013 16.382V5.618a1 1 0 011.447-.894L9 7m0 13l6-3m-6 3V7m6 10l4.553 2.276A1 1 0 0021 18.382V7.618a1 1 0 00-.553-.894L15 4m0 13V4m0 0L9 7"/>
+            </svg>
+            <span>Open In Google Maps</span>
+          </a>
+
+          <button type="button" onclick="downloadCalendarICS()"
+                  class="px-5 py-3.5 rounded-full border border-rose-300 bg-white hover:bg-rose-50 font-cinzel font-bold text-xs tracking-widest uppercase deep-text shadow-sm transition inline-flex items-center gap-2">
+            <svg class="w-4 h-4 text-rose-600" fill="none" stroke="currentColor" stroke-width="2" viewBox="0 0 24 24">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z"/>
+            </svg>
+            <span>Save To Calendar</span>
+          </button>
+        </div>
+      </div>
+
+      <!-- Host Card (Bride's Family Only) -->
+      <div class="lg:col-span-5 royal-card rounded-[2rem] p-8 sm:p-10 flex flex-col justify-center text-center">
+        <span class="font-cinzel text-[11px] tracking-[0.3em] uppercase accent-text font-bold">
+          Cordially Hosted By
+        </span>
+        <h3 class="font-cinzel text-2xl font-extrabold deep-text mt-2 mb-6">
+          The Nayak Family
+        </h3>
+
+        <div class="p-6 rounded-2xl bg-gradient-to-br from-white to-rose-50/90 border border-rose-200 shadow-sm">
+          <span class="font-cinzel text-[10px] tracking-[0.25em] uppercase gold-text font-bold block mb-2">
+            Bride's Parents
+          </span>
+          <p class="font-cinzel text-xl font-extrabold deep-text">Shri Bhaskar Nayak</p>
+          <p class="font-cinzel text-xl font-extrabold deep-text mt-1">&amp; Smt. Chabbi Nayak</p>
+        </div>
+
+        <p class="font-serif italic text-lg muted-text mt-6">
+          Request the honour of your gracious presence and blessings on this auspicious occasion.
+        </p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================= -->
+  <!-- 4. "A LOVE, IN FRAMES" POLAROID GALLERY                                 -->
+  <!-- ======================================================================= -->
+  <section id="moments" class="py-16 md:py-24 px-4 sm:px-6 border-t border-b border-rose-300/60 bg-white/45 backdrop-blur-sm">
+    <div class="max-w-6xl mx-auto">
+      <div class="text-center mb-12">
+        <span class="font-cinzel text-xs font-bold tracking-[0.3em] uppercase accent-text">The Moments</span>
+        <h2 class="font-cinzel text-3xl sm:text-5xl font-extrabold deep-text mt-1">A Love, in Frames</h2>
+        <div class="w-20 h-1 rounded-full mx-auto mt-4 bg-gradient-to-r from-rose-400 via-amber-400 to-rose-400"></div>
+        <p class="font-serif italic text-xl muted-text mt-2">Little glimpses of Abhijeet &amp; Ankita</p>
+      </div>
+
+      <div id="frames-grid" class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 sm:gap-7"></div>
+    </div>
+  </section>
+
+  <!-- Full-Screen Lightbox Modal -->
+  <div id="lightbox" onclick="closeLightbox()" class="fixed inset-0 z-50 bg-rose-950/92 backdrop-blur-md hidden items-center justify-center p-4">
+    <div class="max-w-3xl w-full flex flex-col items-center relative" onclick="event.stopPropagation()">
+      <div class="bg-white p-3 sm:p-4 rounded-3xl shadow-2xl border-2 border-rose-200 relative w-full max-w-xl">
+        <img id="lightbox-photo" src="" alt="Abhijeet & Ankita Moment" class="max-h-[68vh] w-full rounded-2xl object-contain mx-auto bg-rose-50" />
+        <p id="lightbox-title" class="font-serif italic text-xl sm:text-2xl deep-text font-semibold mt-3 text-center"></p>
+      </div>
+
+      <div class="flex items-center gap-4 mt-5">
+        <button type="button" onclick="navigateLightbox(-1)" class="px-5 py-2.5 rounded-full bg-white/95 text-rose-900 font-cinzel font-bold text-xs uppercase tracking-widest shadow-lg hover:bg-rose-50 transition">
+          &larr; Prev
+        </button>
+        <button type="button" onclick="closeLightbox()" class="px-6 py-2.5 rounded-full royal-btn font-cinzel font-bold text-xs uppercase tracking-widest shadow-lg transition">
+          Close
+        </button>
+        <button type="button" onclick="navigateLightbox(1)" class="px-5 py-2.5 rounded-full bg-white/95 text-rose-900 font-cinzel font-bold text-xs uppercase tracking-widest shadow-lg hover:bg-rose-50 transition">
+          Next &rarr;
+        </button>
+      </div>
+    </div>
+  </div>
+
+  <!-- ======================================================================= -->
+  <!-- 5. 1-TAP WHATSAPP RSVP & BLESSINGS GUESTBOOK WALL                       -->
+  <!-- ======================================================================= -->
+  <section id="rsvp" class="py-16 md:py-24 px-4 sm:px-6 max-w-6xl mx-auto">
+    <div class="text-center mb-12">
+      <span class="font-cinzel text-xs font-bold tracking-[0.3em] uppercase accent-text">Kindly Respond</span>
+      <h2 class="font-cinzel text-3xl sm:text-5xl font-extrabold deep-text mt-1">RSVP &amp; Blessings</h2>
+      <div class="w-20 h-1 rounded-full mx-auto mt-4 bg-gradient-to-r from-rose-400 via-amber-400 to-rose-400"></div>
+      <p class="font-serif italic text-xl muted-text mt-2">
+        Confirm your presence for the Wedding at Circus Maidan HCL MINES, Ghatshila on 22nd February 2027 (7:00 PM onwards)
+      </p>
+    </div>
+
+    <div class="grid grid-cols-1 lg:grid-cols-12 gap-8 items-start">
+      <div class="lg:col-span-7 royal-card rounded-[2rem] p-7 sm:p-10">
+        <h3 class="font-cinzel text-2xl font-extrabold deep-text mb-1">Confirm Attendance</h3>
+        <p class="text-xs muted-text mb-6">
+          Fill in your details below to send an instant RSVP message via WhatsApp.
+        </p>
+
+        <form id="rsvp-form" class="space-y-4">
+          <div>
+            <label class="block font-cinzel text-xs font-bold uppercase tracking-widest deep-text mb-1.5">Your Full Name *</label>
+            <input type="text" id="guest-name" required placeholder="e.g. Rajesh Sharma & Family"
+                   class="w-full px-4 py-3 rounded-xl bg-white border border-rose-300 text-rose-950 placeholder-rose-400 text-sm focus:outline-none focus:ring-2 focus:ring-rose-400" />
+          </div>
+
+          <div class="grid grid-cols-1 sm:grid-cols-2 gap-4">
+            <div>
+              <label class="block font-cinzel text-xs font-bold uppercase tracking-widest deep-text mb-1.5">Number of Guests *</label>
+              <select id="guest-count" class="w-full px-4 py-3 rounded-xl bg-white border border-rose-300 text-rose-950 text-sm focus:outline-none focus:ring-2 focus:ring-rose-400">
+                <option value="1 Guest">1 Guest</option>
+                <option value="2 Guests" selected>2 Guests</option>
+                <option value="3 Guests">3 Guests</option>
+                <option value="4+ Family Members">4+ Family Members</option>
+              </select>
+            </div>
+            <div>
+              <label class="block font-cinzel text-xs font-bold uppercase tracking-widest deep-text mb-1.5">Response *</label>
+              <select id="guest-status" class="w-full px-4 py-3 rounded-xl bg-white border border-rose-300 text-rose-950 text-sm focus:outline-none focus:ring-2 focus:ring-rose-400">
+                <option value="Joyfully Attending">Joyfully Attending</option>
+                <option value="Sending Warmest Blessings">Sending Warmest Blessings</option>
+              </select>
+            </div>
+          </div>
+
+          <div>
+            <label class="block font-cinzel text-xs font-bold uppercase tracking-widest deep-text mb-1.5">Arrival / Dietary Note</label>
+            <input type="text" id="guest-note" placeholder="e.g. Arriving by evening train, Pure Veg"
+                   class="w-full px-4 py-3 rounded-xl bg-white border border-rose-300 text-rose-950 placeholder-rose-400 text-sm focus:outline-none focus:ring-2 focus:ring-rose-400" />
+          </div>
+
+          <button type="submit" class="w-full royal-btn py-4 px-6 rounded-xl font-cinzel font-bold text-xs tracking-[0.22em] uppercase transition mt-2">
+            Send RSVP On WhatsApp
+          </button>
+        </form>
+      </div>
+
+      <div class="lg:col-span-5 royal-card rounded-[2rem] p-7 sm:p-10">
+        <h3 class="font-cinzel text-2xl font-extrabold deep-text mb-1">Blessings Wall</h3>
+        <p class="text-xs muted-text mb-5">Leave a heartfelt blessing for Abhijeet &amp; Ankita.</p>
+
+        <form id="wish-form" class="space-y-3 mb-6">
+          <input type="text" id="wish-sender" required placeholder="Your Name"
+                 class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-rose-300 text-rose-950 placeholder-rose-400 text-xs focus:outline-none focus:ring-2 focus:ring-rose-400" />
+          <textarea id="wish-body" required rows="2" placeholder="Write your wishes..."
+                    class="w-full px-3.5 py-2.5 rounded-xl bg-white border border-rose-300 text-rose-950 placeholder-rose-400 text-xs focus:outline-none focus:ring-2 focus:ring-rose-400"></textarea>
+          <button type="submit" class="w-full py-2.5 rounded-xl border border-rose-300 bg-rose-50 hover:bg-rose-100 font-cinzel font-bold text-xs uppercase tracking-widest deep-text transition">
+            Post Blessing
+          </button>
+        </form>
+
+        <div id="wishes-list" class="space-y-3 max-h-60 overflow-y-auto pr-1"></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======================================================================= -->
+  <!-- 6. FOOTER                                                               -->
+  <!-- ======================================================================= -->
+  <footer class="py-16 px-4 text-center border-t border-rose-300/70 bg-white/65 backdrop-blur-md">
+    <div class="max-w-3xl mx-auto space-y-5">
+      <div class="font-serif text-2xl sm:text-3xl tracking-[0.25em] font-bold deep-text">
+        ॥ शुभ विवाह ॥
+      </div>
+
+      <div class="w-16 h-0.5 mx-auto bg-rose-400"></div>
+
+      <p class="font-cinzel text-xs tracking-[0.3em] uppercase accent-text font-bold">
+        With Love &amp; Warm Regards From
+      </p>
+
+      <div class="max-w-md mx-auto text-base font-serif deep-text pt-1">
+        <div class="p-4 rounded-2xl bg-rose-50/80 border border-rose-200">
+          <span class="block font-cinzel text-[10px] font-bold tracking-widest uppercase gold-text mb-1">Nayak Family</span>
+          <span class="font-bold text-lg">Shri Bhaskar Nayak &amp; Smt. Chabbi Nayak</span>
+        </div>
+      </div>
+
+      <p class="font-cinzel text-xs tracking-[0.2em] uppercase deep-text font-bold pt-4">
+        Abhijeet &amp; Ankita • 22nd February 2027 • Circus Maidan HCL MINES, Ghatshila
+      </p>
+    </div>
+  </footer>
+
+  <script>
+    function showToast(message) {
+      const toast = document.getElementById('toast-banner');
+      toast.textContent = message;
+      toast.classList.remove('opacity-0');
+      toast.classList.add('opacity-100');
+      clearTimeout(toast._timer);
+      toast._timer = setTimeout(() => {
+        toast.classList.remove('opacity-100');
+        toast.classList.add('opacity-0');
+      }, 3200);
+    }
+
+    // --- 1. 3D ENVELOPE UNFOLDING SEQUENCE ---
+    let envelopeOpened = false;
+    function triggerEnvelopeOpen() {
+      if (envelopeOpened) return;
+      envelopeOpened = true;
+
+      const env = document.getElementById('royal-envelope');
+      const gate = document.getElementById('envelope-gate');
+      env.classList.add('is-opening');
+      startAmbientMusic();
+
+      setTimeout(() => {
+        gate.classList.add('envelope-dismissed');
+        initScratchCard();
+      }, 1550);
+    }
+
+    // --- 2. INTERACTIVE GOLD-FOIL SCRATCH CARD ---
+    let scratchRevealed = false;
+    function initScratchCard() {
+      const canvas = document.getElementById('scratch-canvas');
+      const box = document.getElementById('scratch-box');
+      if (!canvas || !box || scratchRevealed) return;
+
+      const rect = box.getBoundingClientRect();
+      const dpr = window.devicePixelRatio || 1;
+      canvas.width = Math.max(280, rect.width) * dpr;
+      canvas.height = Math.max(144, rect.height) * dpr;
+
+      const sctx = canvas.getContext('2d');
+      sctx.scale(dpr, dpr);
+      const w = canvas.width / dpr;
+      const h = canvas.height / dpr;
+
+      const grad = sctx.createLinearGradient(0, 0, w, h);
+      grad.addColorStop(0, '#FDE68A');
+      grad.addColorStop(0.28, '#F59E0B');
+      grad.addColorStop(0.55, '#FEF08A');
+      grad.addColorStop(0.82, '#D97706');
+      grad.addColorStop(1, '#FBBF24');
+      sctx.fillStyle = grad;
+      sctx.fillRect(0, 0, w, h);
+
+      sctx.strokeStyle = 'rgba(255, 255, 255, 0.28)';
+      sctx.lineWidth = 1.5;
+      for (let i = -h; i < w + h; i += 14) {
+        sctx.beginPath();
+        sctx.moveTo(i, 0);
+        sctx.lineTo(i + h, h);
+        sctx.stroke();
+      }
+
+      sctx.strokeStyle = 'rgba(136, 19, 55, 0.35)';
+      sctx.lineWidth = 2;
+      sctx.strokeRect(8, 8, w - 16, h - 16);
+
+      sctx.fillStyle = '#881337';
+      sctx.font = 'bold 14px "Cinzel", serif';
+      sctx.textAlign = 'center';
+      sctx.textBaseline = 'middle';
+      sctx.fillText('✦ SCRATCH HERE TO REVEAL DATE ✦', w / 2, h / 2 - 8);
+
+      sctx.fillStyle = '#9F1239';
+      sctx.font = 'italic 13px "Cormorant Garamond", serif';
+      sctx.fillText('Abhijeet & Ankita • Ghatshila', w / 2, h / 2 + 14);
+
+      let isDrawing = false;
+      let moveCounter = 0;
+
+      function getCoords(e) {
+        const bounds = canvas.getBoundingClientRect();
+        const clientX = e.touches ? e.touches[0].clientX : e.clientX;
+        const clientY = e.touches ? e.touches[0].clientY : e.clientY;
+        return { x: clientX - bounds.left, y: clientY - bounds.top };
+      }
+
+      function scratchAt(x, y) {
+        if (scratchRevealed) return;
+        sctx.globalCompositeOperation = 'destination-out';
+        sctx.beginPath();
+        sctx.arc(x, y, 22, 0, Math.PI * 2);
+        sctx.fill();
+
+        moveCounter++;
+        if (moveCounter % 12 === 0) checkScratchPercentage();
+      }
+
+      function checkScratchPercentage() {
+        if (scratchRevealed) return;
+        const pixels = sctx.getImageData(0, 0, canvas.width, canvas.height).data;
+        let transparentCount = 0;
+        const step = 16;
+        for (let i = 3; i < pixels.length; i += step) {
+          if (pixels[i] === 0) transparentCount++;
+        }
+        if (transparentCount / (pixels.length / step) > 0.42) {
+          completeScratchReveal();
+        }
+      }
+
+      canvas.addEventListener('mousedown', (e) => { isDrawing = true; const p = getCoords(e); scratchAt(p.x, p.y); });
+      window.addEventListener('mouseup', () => { isDrawing = false; });
+      canvas.addEventListener('mousemove', (e) => { if (!isDrawing) return; const p = getCoords(e); scratchAt(p.x, p.y); });
+
+      canvas.addEventListener('touchstart', (e) => { e.preventDefault(); isDrawing = true; const p = getCoords(e); scratchAt(p.x, p.y); }, { passive: false });
+      canvas.addEventListener('touchmove', (e) => { e.preventDefault(); if (!isDrawing) return; const p = getCoords(e); scratchAt(p.x, p.y); }, { passive: false });
+      canvas.addEventListener('touchend', () => { isDrawing = false; });
+    }
+
+    function completeScratchReveal() {
+      if (scratchRevealed) return;
+      scratchRevealed = true;
+      const canvas = document.getElementById('scratch-canvas');
+      if (canvas) canvas.classList.add('scratched-complete');
+
+      const hint = document.getElementById('scratch-hint-text');
+      if (hint) hint.textContent = 'Save the date: 22nd February 2027, 7:00 PM onwards!';
+
+      const quickBtn = document.getElementById('btn-instant-reveal');
+      if (quickBtn) quickBtn.classList.add('hidden');
+
+      showToast('22nd February 2027 • 7:00 PM • Circus Maidan HCL MINES!');
+    }
+
+    window.addEventListener('load', initScratchCard);
+
+    // --- 3. AMBIENT INSTRUMENTAL AUDIO ---
+    let audioCtx = null;
+    let isPlaying = false;
+    let melodyTimer = null;
+
+    function playChimeNote(freq, duration) {
+      if (!audioCtx || !isPlaying) return;
+      const osc = audioCtx.createOscillator();
+      const gain = audioCtx.createGain();
+      osc.type = 'sine';
+      osc.frequency.setValueAtTime(freq, audioCtx.currentTime);
+      gain.gain.setValueAtTime(0.001, audioCtx.currentTime);
+      gain.gain.exponentialRampToValueAtTime(0.05, audioCtx.currentTime + 0.14);
+      gain.gain.exponentialRampToValueAtTime(0.0008, audioCtx.currentTime + duration);
+      osc.connect(gain);
+      gain.connect(audioCtx.destination);
+      osc.start();
+      osc.stop(audioCtx.currentTime + duration);
+    }
+
+    function startAmbientMusic() {
+      if (isPlaying) return;
+      const AudioContextClass = window.AudioContext || window.webkitAudioContext;
+      if (!audioCtx) audioCtx = new AudioContextClass();
+      if (audioCtx.state === 'suspended') audioCtx.resume();
+
+      isPlaying = true;
+      document.getElementById('eq-bars').classList.remove('opacity-40');
+      document.getElementById('audio-status-label').textContent = 'Playing';
+
+      const notes = [261.63, 293.66, 329.63, 392.00, 440.00, 493.88, 523.25, 440.00, 392.00, 329.63];
+      let idx = 0;
+      playChimeNote(notes[0], 1.5);
+      melodyTimer = setInterval(() => {
+        idx = (idx + 1) % notes.length;
+        playChimeNote(notes[idx], 1.5);
+      }, 920);
+    }
+
+    function stopAmbientMusic() {
+      isPlaying = false;
+      clearInterval(melodyTimer);
+      document.getElementById('eq-bars').classList.add('opacity-40');
+      document.getElementById('audio-status-label').textContent = 'Muted';
+    }
+
+    function toggleAudio() {
+      if (isPlaying) stopAmbientMusic();
+      else startAmbientMusic();
+    }
+
+    // --- 4. CALENDAR .ICS EXPORT ---
+    function downloadCalendarICS() {
+      const ics = [
+        'BEGIN:VCALENDAR',
+        'VERSION:2.0',
+        'PRODID:-//Abhijeet & Ankita Wedding//EN',
+        'BEGIN:VEVENT',
+        'SUMMARY:Wedding of Abhijeet & Ankita (Circus Maidan HCL MINES, Ghatshila)',
+        'DESCRIPTION:Wedding ceremony of Abhijeet (S/o Apurva Roy & Rupa Roy) and Ankita (D/o Bhaskar Nayak & Chabbi Nayak) at Circus Maidan HCL MINES, Dahigora, Ghatshila, Jharkhand 832303, 7:00 PM onwards.',
+        'LOCATION:Circus Maidan HCL MINES, Dahigora, Ghatshila, Jharkhand 832303',
+        'DTSTART:20270222T133000Z',
+        'DTEND:20270222T183000Z',
+        'END:VEVENT',
+        'END:VCALENDAR'
+      ].join('\r\n');
+
+      const blob = new Blob([ics], { type: 'text/calendar;charset=utf-8' });
+      const a = document.createElement('a');
+      a.href = URL.createObjectURL(blob);
+      a.download = 'abhijeet-ankita-wedding-22feb.ics';
+      document.body.appendChild(a);
+      a.click();
+      document.body.removeChild(a);
+    }
+
+    // --- 5. GALLERY LINKED TO ROOT REPO PHOTOS (135572.jpg - 135571.jpg) ---
+    function buildIllustratedFallback(title, subtitle, filename, accent1, accent2) {
+      const svg = `<svg xmlns="http://www.w3.org/2000/svg" width="600" height="800" viewBox="0 0 600 800">
+        <defs>
+          <linearGradient id="bg" x1="0" y1="0" x2="1" y2="1">
+            <stop offset="0%" stop-color="${accent1}"/>
+            <stop offset="100%" stop-color="${accent2}"/>
+          </linearGradient>
+        </defs>
+        <rect width="600" height="800" fill="url(#bg)"/>
+        <circle cx="300" cy="310" r="190" fill="none" stroke="#ffffff" stroke-opacity="0.45" stroke-width="2" stroke-dasharray="6 6"/>
+        <circle cx="300" cy="310" r="150" fill="#ffffff" fill-opacity="0.32"/>
+        <path d="M300 265 C282 238, 240 245, 240 282 C240 318, 300 355, 300 355 C300 355, 360 318, 360 282 C360 245, 318 238, 300 265 Z" fill="#E11D48" fill-opacity="0.85"/>
+        <text x="300" y="425" font-family="Georgia, serif" font-size="30" font-weight="bold" fill="#881337" text-anchor="middle">Abhijeet &amp; Ankita</text>
+        <text x="300" y="465" font-family="Georgia, serif" font-style="italic" font-size="22" fill="#9F1239" text-anchor="middle">${title}</text>
+        <rect x="165" y="510" width="270" height="38" rx="19" fill="#ffffff" fill-opacity="0.82"/>
+        <text x="300" y="535" font-family="monospace" font-size="16" font-weight="bold" fill="#BE123C" text-anchor="middle">${filename}</text>
+        <text x="300" y="582" font-family="sans-serif" font-size="14" fill="#881337" text-anchor="middle">${subtitle}</text>
+      </svg>`;
+      return 'data:image/svg+xml;charset=UTF-8,' + encodeURIComponent(svg);
+    }
+
+    const GALLERY_ITEMS = [
+      {
+        filename: '135572.jpg',
+        src: './135572.jpg',
+        fallback: buildIllustratedFallback('Breezy Coastal Smiles', 'Upload 135572.jpg to GitHub repo root', '135572.jpg', '#FFE4E8', '#FDA4B3'),
+        title: 'Breezy Coastal Smiles',
+        tag: 'Together Always'
+      },
+      {
+        filename: '135573.jpg',
+        src: './135573.jpg',
+        fallback: buildIllustratedFallback('Warmth & Laughter', 'Upload 135573.jpg to GitHub repo root', '135573.jpg', '#FFE8EC', '#F9A8D4'),
+        title: 'Warmth & Laughter',
+        tag: 'Candid Moments'
+      },
+      {
+        filename: '135575.jpg',
+        src: './135575.jpg',
+        fallback: buildIllustratedFallback('Festive Lights & Grace', 'Upload 135575.jpg to GitHub repo root', '135575.jpg', '#FEF3C7', '#FCA5A5'),
+        title: 'Festive Lights & Grace',
+        tag: 'Celebration Vibes'
+      },
+      {
+        filename: '135571.jpg',
+        src: './135571.jpg',
+        fallback: buildIllustratedFallback('Under Evening Lanterns', 'Upload 135571.jpg to GitHub repo root', '135571.jpg', '#FCE7F3', '#FB7188'),
+        title: 'Under Evening Lanterns',
+        tag: 'Forever Begins'
+      }
+    ];
+
+    let currentLightboxIdx = 0;
+
+    function renderGallery() {
+      const grid = document.getElementById('frames-grid');
+      grid.innerHTML = GALLERY_ITEMS.map((item, idx) => `
+        <div class="bg-white p-3.5 pb-4 rounded-[1.75rem] border border-rose-200/90 shadow-lg hover:shadow-xl transform hover:-translate-y-1.5 transition duration-300 flex flex-col">
+          <div onclick="openLightbox(${idx})" class="aspect-[3/4] rounded-2xl overflow-hidden relative cursor-pointer group bg-rose-100">
+            <img src="${item.src}"
+                 onerror="this.onerror=null; this.src='${item.fallback}';"
+                 alt="${item.title}"
+                 class="w-full h-full object-cover group-hover:scale-105 transition duration-700" />
+            <span class="absolute top-3 left-3 px-3 py-1 rounded-full bg-white/90 backdrop-blur-md border border-rose-200 text-[10px] font-cinzel font-bold uppercase tracking-widest deep-text shadow-sm flex items-center gap-1.5">
+              <span class="w-1.5 h-1.5 rounded-full bg-rose-600 animate-ping"></span>
+              Live
+            </span>
+          </div>
+          <div class="pt-3.5 text-center flex-1 flex flex-col justify-center">
+            <h4 class="font-cinzel text-sm font-extrabold deep-text">${item.title}</h4>
+            <p class="font-cinzel text-[10px] tracking-[0.2em] uppercase accent-text font-bold mt-0.5">${item.tag}</p>
+          </div>
+        </div>
+      `).join('');
+    }
+    renderGallery();
+
+    function openLightbox(idx) {
+      currentLightboxIdx = idx;
+      const item = GALLERY_ITEMS[idx];
+      const lbImg = document.getElementById('lightbox-photo');
+      lbImg.src = item.src;
+      lbImg.onerror = function () { this.src = item.fallback; };
+      document.getElementById('lightbox-title').textContent = `${item.title} — ${item.tag}`;
+      const lb = document.getElementById('lightbox');
+      lb.classList.remove('hidden');
+      lb.classList.add('flex');
+    }
+
+    function navigateLightbox(step) {
+      const nextIdx = (currentLightboxIdx + step + GALLERY_ITEMS.length) % GALLERY_ITEMS.length;
+      openLightbox(nextIdx);
+    }
+
+    function closeLightbox() {
+      const lb = document.getElementById('lightbox');
+      lb.classList.add('hidden');
+      lb.classList.remove('flex');
+    }
+
+    // --- 6. 1-TAP WHATSAPP RSVP ---
+    document.getElementById('rsvp-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const name = document.getElementById('guest-name').value.trim();
+      const count = document.getElementById('guest-count').value;
+      const status = document.getElementById('guest-status').value;
+      const note = document.getElementById('guest-note').value.trim();
+
+      const msg = `*RSVP: Abhijeet & Ankita*\n` +
+                  `*Event:* Wedding Ceremony (22nd Feb, Circus Maidan HCL MINES, Ghatshila - 7 PM)\n` +
+                  `*Guest:* ${name}\n` +
+                  `*Count:* ${count}\n` +
+                  `*Response:* ${status}\n` +
+                  (note ? `*Note:* ${note}\n` : '') +
+                  `\nWarmest wishes to the Nayak family!`;
+
+      window.open(`https://wa.me/?text=${encodeURIComponent(msg)}`, '_blank');
+    });
+
+    // --- 7. BLESSINGS GUESTBOOK ---
+    const INITIAL_WISHES = [
+      { sender: 'Nayak Family', body: 'With joyful hearts, we await your gracious presence to bless Abhijeet & Ankita.' }
+    ];
+
+    function getWishes() {
+      const saved = localStorage.getItem('wishes_abhijeet_ankita_v2_wedding');
+      return saved ? JSON.parse(saved) : INITIAL_WISHES;
+    }
+
+    function renderWishes() {
+      const list = document.getElementById('wishes-list');
+      list.innerHTML = getWishes().map(w => `
+        <div class="p-3.5 rounded-2xl bg-rose-50/90 border border-rose-200 text-xs">
+          <p class="font-serif italic text-base deep-text">"${w.body}"</p>
+          <span class="block font-cinzel text-[11px] font-bold accent-text mt-1">— ${w.sender}</span>
+        </div>
+      `).join('');
+    }
+    renderWishes();
+
+    document.getElementById('wish-form').addEventListener('submit', function (e) {
+      e.preventDefault();
+      const sender = document.getElementById('wish-sender').value.trim();
+      const body = document.getElementById('wish-body').value.trim();
+      if (!sender || !body) return;
+      const items = getWishes();
+      items.unshift({ sender, body });
+      localStorage.setItem('wishes_abhijeet_ankita_v2_wedding', JSON.stringify(items));
+      document.getElementById('wish-sender').value = '';
+      document.getElementById('wish-body').value = '';
+      renderWishes();
+      showToast('Your blessing has been posted!');
+    });
+
+    // --- 8. AMBIENT FLOATING ROSE PETALS CANVAS ---
+    const canvas = document.getElementById('petal-canvas');
+    const ctx = canvas.getContext('2d');
+    function resizeCanvas() {
+      canvas.width = window.innerWidth;
+      canvas.height = window.innerHeight;
+    }
+    window.addEventListener('resize', resizeCanvas);
+    resizeCanvas();
+
+    const petalColors = ['#FB7188', '#F43F5E', '#FDA4B3', '#F59E0B'];
+    const petals = Array.from({ length: 30 }, () => ({
+      x: Math.random() * canvas.width,
+      y: Math.random() * canvas.height,
+      r: Math.random() * 6 + 3.5,
+      vy: Math.random() * 1.15 + 0.45,
+      vx: Math.random() * 0.9 - 0.45,
+      angle: Math.random() * 360,
+      colorIdx: Math.floor(Math.random() * 4)
+    }));
+
+    function animatePetals() {
+      ctx.clearRect(0, 0, canvas.width, canvas.height);
+      petals.forEach(p => {
+        p.y += p.vy;
+        p.x += p.vx + Math.sin(p.y * 0.012) * 0.4;
+        p.angle += 0.85;
+        if (p.y > canvas.height + 16) {
+          p.y = -16;
+          p.x = Math.random() * canvas.width;
+        }
+        ctx.save();
+        ctx.translate(p.x, p.y);
+        ctx.rotate((p.angle * Math.PI) / 180);
+        ctx.fillStyle = petalColors[p.colorIdx];
+        ctx.globalAlpha = 0.36;
+        ctx.beginPath();
+        ctx.ellipse(0, 0, p.r, p.r * 1.5, 0, 0, Math.PI * 2);
+        ctx.fill();
+        ctx.restore();
+      });
+      requestAnimationFrame(animatePetals);
+    }
+    animatePetals();
+  </script>
+</body>
+</html>
